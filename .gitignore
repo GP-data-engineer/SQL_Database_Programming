@@ -1,0 +1,34 @@
+# Ignore database backup files
+*.bak
+*.trn
+
+# Ignore SQL Server data/log files
+*.mdf
+*.ldf
+*.ndf
+
+# Ignore temp files
+*.tmp
+*.temp
+
+# Ignore Visual Studio / SSMS project files
+*.suo
+*.user
+*.dbmdl
+*.jfm
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore VSCode settings
+.vscode/
+.history/
+
+# Ignore JetBrains IDE settings
+.idea/
+
+# Ignore Python virtual environments (in case of scripts)
+venv/
+.env/
