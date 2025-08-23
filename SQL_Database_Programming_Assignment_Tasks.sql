@@ -1,5 +1,3 @@
--- for grade DST:
-
 -- 3.1) write a function that checks if the given argument text is a palindrome
 create function palind4(@tekst varchar(50)) returns varchar(50)
 as begin
@@ -66,9 +64,6 @@ select * from dbo.miesiac_zakup(7)
 
 drop function miesiac_zakup
 
--- for grade DB:
-
--- tasks for grade DST plus additionally:
 
 -- 4.1) improve the function czy_pesel so that it is resistant to incorrect parameters (it should display an appropriate message instead of generating errors), 
      -- the function should also correctly validate PESEL numbers ending with digit 0
@@ -118,7 +113,7 @@ end
 select dbo.czy_pesel_3('44051401458') -- if it is 1 then PESEL is valid, if 0 then false 
 select dbo.czy_pesel_3('440514O1458') -- what if letter O instead of zero?
 select dbo.czy_pesel_3('49040501580') -- what if division modulo = 0 but such PESEL exists? - I don't know how to solve this
-select dbo.czy_pesel_3('22222222222') -- and here I don’t remember what was the point?
+select dbo.czy_pesel_3('22222222222') -- and here I donâ€™t remember what was the point?
 
 drop function czy_pesel_3
 
@@ -159,14 +154,12 @@ else -- goes here if age is clearly < 18 compared to current date.
 end
 
 
-exec dodaj_studenta @imie = 'Pultek' , @nazwisko = 'Trepek', @data_urodzenia = '2010-01-18', @plec = 'M', @miasto = 'Byków', @liczba_dzieci = '0'
+exec dodaj_studenta @imie = 'Pultek' , @nazwisko = 'Trepek', @data_urodzenia = '2010-01-18', @plec = 'M', @miasto = 'BykÃ³w', @liczba_dzieci = '0'
 
 select * from studenci 
 
 drop procedure dodaj_studenta
 
--- for grade BDB:
--- tasks for grade DB plus additionally:
 
 -- 5.1) create table: clients ={id_klienta, first_name, last_name, gender, date_of_birth, pesel}. 
 -- Write a trigger that will validate the entered PESEL number 
@@ -183,10 +176,10 @@ create table klienci (
 select * from klienci
 
 insert into klienci (imie, nazwisko, plec, data_urodzenia, pesel)
-values ('Boles³aw', 'Kêdzierzawy', 'M', '1979-06-15', '80051412347') -- will work
+values ('BolesÂ³aw', 'KÃªdzierzawy', 'M', '1979-06-15', '80051412347') -- will work
 
 insert into klienci (imie, nazwisko, plec, data_urodzenia, pesel)
-values ('Mieszko', 'Pl¹tonogi', 'Z', '1990-06-15', '90031512341') -- will not work
+values ('Mieszko', 'PlÂ¹tonogi', 'Z', '1990-06-15', '90031512341') -- will not work
 
 drop table klienci
 
@@ -229,7 +222,7 @@ as
 begin
     if ((select count(*) from inserted where plec = 'K') > 0) -- checks if female
     begin -- checks if children exist
-        if ((select count(*) from inserted where liczba_dzieci > 0)>0) -- without last >0 it won’t work and I don’t know why?
+        if ((select count(*) from inserted where liczba_dzieci > 0)>0) -- without last >0 it wonâ€™t work and I donâ€™t know why?
         begin
             if ((select count(*) from inserted WHERE 
 			datediff(yy, data_urodzenia, getdate()) < 18
@@ -244,7 +237,7 @@ begin
 end
 
 insert into studenci (imie, nazwisko, data_urodzenia, plec, miasto, liczba_dzieci) 
-values ('Lola','D¿ind¿er', '2007-01-16' ,'K' ,'Katowice' , 1)
+values ('Lola','DÂ¿indÂ¿er', '2007-01-16' ,'K' ,'Katowice' , 1)
 
 select * from studenci
 
