@@ -16,7 +16,7 @@ select dbo.palind('kajak')
 drop function palind4
 
 -- 3.2) based on the Northwind database - write a function returning the sales value of goods for the given parameters: 
-     -- category and customer name. The function should never return a Null value
+     -- category and customer name. The function should never return a Null value.
 
 select sum(ode.UnitPrice * ode.Quantity) as 'Sales Value', cat.CategoryName, cus.CompanyName from [Order Details] ode
 join Products pro on pro.ProductID = ode.ProductID
